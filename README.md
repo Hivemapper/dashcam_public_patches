@@ -1,29 +1,9 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Pull the following repository in the same parent directory as your buildroot.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+Add to your buildroot's .config file: BR2_GLOBAL_PATCH_DIR=../
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+Contact snototter@hellbender.com for additional information if needed.
