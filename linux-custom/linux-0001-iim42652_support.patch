@@ -1,3 +1,17 @@
+diff --git a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
+index 446d62e8fa2b..f0b133c0f881 100644
+--- a/arch/arm/configs/bcm2711_defconfig
++++ b/arch/arm/configs/bcm2711_defconfig
+@@ -1409,6 +1409,9 @@ CONFIG_MAX30102=m
+ CONFIG_DHT11=m
+ CONFIG_HDC100X=m
+ CONFIG_HTU21=m
++CONFIG_INV_ICM42600=y
++CONFIG_INV_ICM42600_I2C=m
++CONFIG_INV_ICM42600_SPI=y
+ CONFIG_INV_MPU6050_I2C=m
+ CONFIG_APDS9960=m
+ CONFIG_BH1750=m
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
 index ce66ffd5a1bb..a8e517cb06d5 100644
 --- a/arch/arm/boot/dts/Makefile
