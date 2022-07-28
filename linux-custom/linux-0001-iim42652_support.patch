@@ -1,3 +1,46 @@
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index ce66ffd5a1bb..a8e517cb06d5 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -361,6 +361,8 @@ dtb-$(CONFIG_ARCH_MOXART) += \
+ 	moxart-uc7112lx.dtb
+ dtb-$(CONFIG_ARCH_SD5203) += \
+ 	sd5203.dtb
++dtb-$(CONFIG_INV_ICM42600) += \
++        iim42600.dtb
+ dtb-$(CONFIG_SOC_IMX1) += \
+ 	imx1-ads.dtb \
+ 	imx1-apf9328.dtb
+diff --git a/arch/arm/boot/dts/iim42600.dtsi b/arch/arm/boot/dts/iim42600.dtsi
+new file mode 100644
+index 000000000000..05711967b1a3
+--- /dev/null
++++ b/arch/arm/boot/dts/iim42600.dtsi
+@@ -0,0 +1,24 @@
++&invn_spi {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	invn_icm_spi: iim42600@0 {
++		compatible = "invensense,iim42600";
++		reg = <0>;
++		interrupts = <0 IRQ_TYPE_EDGE_RISING>;
++		spi-max-frequency = <24000000>;
++		spi-cpol;
++		spi-cpha;
++		inven,vdd_ana-supply = <&invn_vdd>;
++		inven,vcc_i2c-supply = <&invn_vddio>;
++		axis_map_x = <0>;
++		axis_map_y = <1>;
++		axis_map_z = <2>;
++		negate_x = <0>;
++		negate_y = <0>;
++		negate_z = <0>;
++		inven,secondary_type = "none";
++		inven,aux_type = "none";
++		inven,read_only_slave_type = "none";
++	};
++};
 diff --git a/drivers/iio/imu/Kconfig b/drivers/iio/imu/Kconfig
 index f02883b08480..90cee7817332 100644
 --- a/drivers/iio/imu/Kconfig
