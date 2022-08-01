@@ -1,28 +1,31 @@
-diff --git a/arch/arm/boot/dts/iim42600.dtsi b/arch/arm/boot/dts/iim42600.dtsi
-new file mode 100644
-index 000000000000..dbc060e7d9b7
---- /dev/null
-+++ b/arch/arm/boot/dts/iim42600.dtsi
-@@ -0,0 +1,20 @@
-+&spi0 {
-+	status = "okay";
+diff --git a/arch/arm/boot/dts/bcm2711-rpi-cm4.dts b/arch/arm/boot/dts/bcm2711-rpi-cm4.dts
+index 6e99da17e3c5..1964e985ea4a 100644
+--- a/arch/arm/boot/dts/bcm2711-rpi-cm4.dts
++++ b/arch/arm/boot/dts/bcm2711-rpi-cm4.dts
+@@ -596,3 +596,24 @@ __overrides__ {
+                           <&spi0>, "dmas:8=", <&dma40>;
+        };
+ };
 +
-+	invn_icm_spi: iim42600@0 {
-+		compatible = "invensense,iim42600";
-+		reg = <0>;
-+		interrupt-parent = <&gpio8>;
-+		interrupts = <56 IRQ_TYPE_LEVEL_LOW>;
-+		spi-max-frequency = <24000000>;
-+		axis_map_x = <1>;
-+		axis_map_y = <0>;
-+		axis_map_z = <2>;
-+		negate_x = <1>;
-+		negate_y = <0>;
-+		negate_z = <0>;
-+		inven,secondary_type = "none";
-+		inven,aux_type = "none";
-+		inven,read_only_slave_type = "none";
-+	};
++&spi0 {
++       status = "okay";
++
++       invn_icm_spi: iim42600@0 {
++               compatible = "invensense,iim42600";
++               reg = <0>;
++               interrupt-parent = <8>;
++               interrupts = <56 IRQ_TYPE_LEVEL_LOW>;
++               spi-max-frequency = <24000000>;
++               axis_map_x = <1>;
++               axis_map_y = <0>;
++               axis_map_z = <2>;
++               negate_x = <1>;
++               negate_y = <0>;
++               negate_z = <0>;
++               inven,secondary_type = "none";
++               inven,aux_type = "none";
++               inven,read_only_slave_type = "none";
++       };
 +};
 diff --git a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
 index 446d62e8fa2b..5a1ce560d0f3 100644
